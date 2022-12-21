@@ -83,8 +83,15 @@ namespace ProyectoClases.Clases
             if(velocidad > 0)
             {
                 aceleracion -= 20;
-                velocidad = aceleracion;
+                if (aceleracion < 0)
+                {
+                    velocidad = 0;
+                }
+                else
+                {
+                    velocidad = aceleracion;
                 Console.WriteLine($"Velocidad: {velocidad} frenado: -20 = {aceleracion}");
+                }
             }
             else
             {            

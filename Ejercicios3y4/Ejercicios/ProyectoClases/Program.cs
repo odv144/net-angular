@@ -191,6 +191,7 @@ Console.WriteLine($"La mascota esta en el regazo de: {coche.UbiMascota()}");
 #endregion
 
 #region Ejercicio 14 de la guia 2
+/*
 Auto coche = new Auto("Fuego", "Renault", "Rojo", 5);
 coche.AsignarConductor();
 coche.AsignarPasajero(4);
@@ -198,14 +199,24 @@ coche.Encender();
 coche.acelerar();
 coche.acelerar();
 coche.BajarPasajeros(2);
-coche.frenar(); // si alcanzo correguir que si acelera a 10 y frena queda en -10 que solo tendria que ser 0
+coche.frenar(); 
 coche.BajarPasajeros(2);
 coche.Apagar();
 coche.BajarConductor();
+*/
 #endregion
 
 #region Ejercicio 15 de la guia 2
-
-
-
+/*
+Estudiante student = new Estudiante();
+student.AgregarLibro("El cerebro del Futuro", "Facundo Manes", 300, true);
+student.AgregarLibro("El cerebro del Futuro2", "Facundo Manes", 200, false);
+student.AgregarLibro("El cerebro del Futuro3", "Facundo Manes", 100, true);
+student.AgregarLibro("El cerebro del Futuro4", "Facundo Manes", 500, false);
+student.LibrosLeidos();
+student.QuitarLibro(2);
+student.LibrosLeidos();
+Console.WriteLine("Cantidad de paginas leidas en total: "+ student.SumaLeido());
+Console.WriteLine("Cantidad libros sin leer: " + student.SinLeer());
+*/
 #endregion
