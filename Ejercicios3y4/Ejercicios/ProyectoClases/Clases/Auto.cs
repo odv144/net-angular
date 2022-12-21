@@ -15,6 +15,7 @@ namespace ProyectoClases.Clases
         private int velocidad;
         private int aceleracion;
         private int _capacidad;
+        private int ubiRegazo;
         Persona[] arrayPasajero = new Persona[5];
 
         public int Pasajeros { get; set; }
@@ -156,6 +157,7 @@ namespace ProyectoClases.Clases
                     {
                         //ver como hacer pasar asignar el regazo de que pasajero va
                         arrayPasajero[this.Pasajeros-1].RegazoUsado = true;
+                        ubiRegazo = this.Pasajeros - 1;
                         string regazo = arrayPasajero[this.Pasajeros - 1].Nombre;
                         return "La mascota esta en el regazo del pasajero "+ regazo;
                     }
@@ -164,7 +166,8 @@ namespace ProyectoClases.Clases
                         return "Necesita espacio de un pasajero para poder llevar la mascota";
                     }
                 }
-                return "Se puede asignar sin problema";
+                Pasajeros++;
+                return "Mascota viaja en un asiento usando un lugar de un pasajero";
             }
             else
             {
@@ -174,12 +177,46 @@ namespace ProyectoClases.Clases
         }
         public void CambiarLugarMascota(int lugar)
         {
-            if ( lugar <= _capacidad)
+            if ( lugar <= _capacidad && lugar != ubiRegazo)
             {
-                arrayPasajero[this.Pasajeros].RegazoUsado = false;
+                arrayPasajero[ubiRegazo].RegazoUsado = false;
                 arrayPasajero[lugar].RegazoUsado = true;
+                ubiRegazo = lugar;
+                Console.WriteLine("La mascota cambio de regazo y esta en la persona: " + arrayPasajero[lugar].Nombre);
+            }
+            else
+            {
+                Console.WriteLine("La posición pasada no es valida o es donde esta la mascota");
             }
         }
-        
+        public string UbiMascota()
+        {
+            return this.arrayPasajero[ubiRegazo].Nombre;
+        }
+
+        public void BajarPasajeros(int cantidad)
+        {
+            if (velocidad == 0 && cantidad < Pasajeros)
+            {
+                Pasajeros -= cantidad;
+                Console.WriteLine($"Se bajaron {cantidad} pasajeros y quedan: {Pasajeros}");
+            }
+            else
+            {
+                Console.WriteLine("NO se puede bajar pasajeros por que el Auto esta movimiento o cantidad de pasajeros incorrecta");
+            }
+        }
+        public void BajarConductor()
+        {
+            if (!encender)
+            {
+                Conductor = null;
+                Console.WriteLine("Se puede bajar sin problemas");
+            }
+            else
+            {
+                Console.WriteLine("No se puede bajar hasta apagar el auto");
+            }
+        }
     }
 }

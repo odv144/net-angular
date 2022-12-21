@@ -166,11 +166,11 @@ Console.WriteLine(coche.Apagar());
 #endregion
 
 #region Ejercicio 12 de la guia 2
-
+/*
 Auto coche = new Auto("Fuego", "Renault", "Rojo",5);
 //coche.Pasajeros = 2;
 coche.AsignarPasajero(3);
-
+*/
 
 #endregion
 
@@ -181,18 +181,27 @@ Mascota animal = (new Mascota("Tilin", Mascota.TipoAnimal.perro));
 
 coche.AsignarConductor();
 coche.AsignarPasajero(4);
-animal.Tamanio = "Grande";
+Console.WriteLine("Cantidad de pasajeros actuales "+coche.Pasajeros);
+animal.Tamanio = "chico"; //cualquier tamaño distinto a chico usa un lugar
 Console.WriteLine(coche.LlevarMascota(animal));
 //Tarea: Hacer el cambio de regazo de la mascota eh implementar lo del tamaño del animal
-
+coche.CambiarLugarMascota(2);
+Console.WriteLine($"La mascota esta en el regazo de: {coche.UbiMascota()}");
 */
 #endregion
 
 #region Ejercicio 14 de la guia 2
-
-
-
-
+Auto coche = new Auto("Fuego", "Renault", "Rojo", 5);
+coche.AsignarConductor();
+coche.AsignarPasajero(4);
+coche.Encender();
+coche.acelerar();
+coche.acelerar();
+coche.BajarPasajeros(2);
+coche.frenar(); // si alcanzo correguir que si acelera a 10 y frena queda en -10 que solo tendria que ser 0
+coche.BajarPasajeros(2);
+coche.Apagar();
+coche.BajarConductor();
 #endregion
 
 #region Ejercicio 15 de la guia 2
